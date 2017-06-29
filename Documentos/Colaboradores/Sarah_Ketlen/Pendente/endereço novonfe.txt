@@ -1,0 +1,4 @@
+http://192.168.0.48:3001
+
+login: glauber@avancoinfo.com.br
+senha: 123456

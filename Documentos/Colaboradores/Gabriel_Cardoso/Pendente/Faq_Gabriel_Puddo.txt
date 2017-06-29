@@ -1,0 +1,195 @@
+* Supervisor WEB
+config: admin/avanco1188web
+entrar: master/AvancoMasterSUP
+
+* Restaura banco de dados postgres no formado se texto base plana ((arquivo com extensão .sql))
+máquina windows utilizando prompt de comando:
+INICIAR >> EXECUTAR >> digitar CMD enter >> digitar o comando abaixo:
+
+c:\Arquivos de programas\PostgreSQL\8.3\bin>psql.exe -U postgres -h localhost -d bd_supervisor -f c:\backup.sql
+
+Lembrando que o nome do arquivo no exemplo acima é backup.sql
+
+
+* MD5 - File not found
+Memoria ou OPENSSL
+
+* Verificar se HD tem bad blocks
+badblocks -sv /dev/sda
+
+* Cupons não importados, verificar o erro:
+Troco Invalido = cupom retornou troco, mas no Retaguarda não aceita troco. Troca na forma de pagamento
+
+* Rodar o Reiser
+		mcedit /etc/fstab, comentar o inicio da linha do /u com #
+		Esc
+		Esc
+		Yes
+		reboot
+	-*Assim que voltar do Reboot, rodar os seguintes comandos: 
+		reiserfsck /dev/sda3
+		Yes
+	-*Se caso pedir para rodar algum comando(Exemplo: 2 founds corruptions .... --rebuild-tree, --fix-fixable):
+		reiserfsck /dev/sda3 <NomeDoComando>   , exemplo: reiserfsck /dev/sda3 --rebuild-tree
+		Yes
+	-*Assim que finalizar o reiser
+		mcedit /etc/fstab, descomentar o inicio da linha do /u com #
+		reboot
+
+* TEF Dedicado avanço não altera
+acessar banco de dados manualmente pelo acces, limpar a tabela de TEF
+ 
+ 
+* Alterar senha Postgres (windows)
+-> acessar linha de comando do postgres:
+	psql.exe -Upostgres -c"alter user postgres with password 'super';"
+
+
+*Fazini
+ECFPORT > caractere
+ 
+* IPP320 Igênico (pinpad USB - Linux)
+ls -la /etc/ttyACM*
+
+
+* LINKAR PORTA SERIAL
+  Link Simbólico(Transformar uma placa serial, por exemplo, de "ttyF" para ttyS, Linux):
+
+-> Editar o arquivo rc.local:
+mcedit /etc/rc.d/rc.local
+
+-> Incluir em qualquer local do rc.local:
+rm -rf /dev/ttyS0
+ln -s /dev/ttyF0 /dev/ttyS0
+
+-> Logo em seguida, reiniciar a máquina do caixa
+
+-> Digitar esse comando para ver se subiu corretamente:
+ls -la /dev/ttyS0
+setserial -bg /dev/ttyS*
+
+
+* Adptação postgres
+Se caso for adaptar o banco postgres e ele não criar as devidas tabelas ou der erro, deverá fazer os seguintes procedimento:
+	- Fazer backup do postgres (Backup da pasta 'data' e pelo aplicativo do postgres)
+	- Após feito o backup, deverá desinstalar o Postgres: 1º: Pelo Painel de Controle; 2º: Removendo o usuario postgres do gerenciamento; 3º: Deletar a pasta c:\Arquivos de programas\PostgresSQL\8.3
+	- Reiniciar a máquina
+	- Instalar o Postgres da versão(Lei da Transparencia) xx.02.40 e logo em seguida adaptar para versão que vai ser atualizada.
+	- Restaurar apenas "DADOS" do arquivo xxxx.backup feito anteriormente no novo banco
+	- Reiniciar a máquina, novamente
+	- Verificar se criou as tabelas e colunas, e se foi restaurado corretamente os dados
+
+
+* Restauração Postgres 
+	- http://auadinformatica.wordpress.com/2011/04/29/backup-e-restore-do-banco-de-dados-postgresql/
+	- psql -U postgres -f NOME.DO.ARQUIVO.SQL bd_supervisor (restaura apenas em arquivo tesxto)
+	
+* ERRO SQL tabscript Linux - integrador
+	- Matar o processo do integrador
+	- Remover integpaf.db do caixa da pasta /u/pdv
+	- Ativar o integrador, vai criar outro integpaf.db
+
+* Mensagem ao executar o comando psql -U postgres
+	psql: could not connect to server: No such file or directory
+        Is the server running locally and accepting
+        connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+
+	Conecte no servidor
+	- cd /u
+	- chmod -R 700 pgsql && chown -R postgres.postgres pgsql
+	- sh /etc/rc.d/rc.postgresql start
+	- psql -U postgres
+	-** se nao levantar
+		- apaga o arquivo /u/pgsql/serverlog
+		- tenta dar o start no postgres de novo
+		- ele vai criar o serverlog novamente
+		- mais agora ele vai estar te informando o motivo de ele nao ter iniciado
+		
+		
+* Leitura X forçada
+	Desliga a ECF. Prescione o botão Seleção. Liga a ECF mantendo botão Seleção prescionado. Assim que subir algum cupom ou fizer um baralho, soltar o botão Seleção, clicar no botão Seleção, e depois clicar no botão Confirma.
+	
+* Verificar Online retaguarda
+	ps ax | grep rts32*
+
+* Menu Supervisor WEB não aparece:
+	- Fechar o Supervisor
+	- Parar os dois serviços do Supervisor
+	- Acessar: "C:\supervisor\tomcat\webapps"
+	- Deletar a pasta 'SUP'
+	- Acessar: "C:\supervisor\tomcat\work"
+	- Deletar a pasta 'Catalina'
+	- Iniciar os dois serviços do Supervisor
+	ou limpar a 'cache' do navegador
+	
+* Blacklist:
+	lsmod
+	achar a linha: video
+	pegar o 3 nome
+	dar : mcedit /etc/modprobe.d/blacklist.conf
+	colocar: blacklist <3nome>
+	reboot
+	
+* ERRO 21- PINPAD
+	Estorou memoria pinpad. Atualizar modulo da cielo. Diminuir algum produto, principalmente da Cielo, juntamente com o configurador multi-bandeira. Reinciar serviço TEF e mandar carga de tabelas.
+	
+* Erro leitura do arquivo ecfs.ini linux após colocar novo arquivo
+	fazer um comando de: leecfs, e depois entrar no pdv
+
+* TNFE e SUPERVISOR WEB na mesma máquina
+	- parar os dois serviços do supervisor.
+	- acessar a pasta C:\supervisor\tomcat\conf\
+	- editar o arquivo server.xml
+	- nas primeiras linhas, editar o campo "<Server port="8005" shutdown="SHUTDOWN">" , para "<Server port="8085" shutdown="SHUTDOWN">"
+	- salve o arquivo.
+	- iniciar todos os serviços do supervisor e o tnfe.
+	
+* Postgres, restaurar arquivo em binario, via máquina windows no Prompt(cmd):
+	c:\Arquivos de programas\PostgreSQL\8.3\bin: pg_restore -U postgres -v -d BANCO ARQUIVO.backup	
+
+* Novo arquivo de imagem pdv: logo.png (450x250)
+
+* Caixa não reconhece o operador mesmo puxando a carga
+	Se a inclusão do operador, no momento de colocar a senha, colou a senha pelo CTRL + V, o frente não vai reconhecer o operador. A senha deve ser digitada.
+	
+* Postgres no Linux não inicia(Stoping PostgreSQL: failled, Starting PostgreSQL: ok)
+	- acessar o servidor com super usuario
+	- cd /u/pgsql/
+	- rm serverlog
+	- depois tentar iniciar o serviço: sh /etc/rc.d/rc.postgresql start
+	- verificar se iniciou: sh /etc/rc.d/rc.postgresql status, caso apareça: pg_ctl: no server running, verificar o arquivo serverlog
+	- more serverlog
+	- se caso no log estiver escrito "FATAL: bogus data in lock file "/tmp/.s.PGSQL.5432.lock": "" ", fazer rm /tmp/.s.PGSQL.5432.lock
+	- depois só iniciar o serviço: sh /etc/rc.d/rc.postgresql start
+
+* Como configurar o tira teima linux
+	dbu teima.ini
+	
+* (Grupo Produto/Supervisor/Comandas) No banco de dados, em sup_loja(empresa, loja, nome-da-loja): se existe a loja 3 para a empresa 2, não vai conseguir cadastrar a loja 3 para a empresa 1. 
+  Deveria verificar primeiro a empresa, se na empresa não tem a loja, cadastra, mas esta verificando a loja primeiro.
+  
+* Ativar ONLINE para teste
+	/v/materiais/sj/back-140805/sist/exec
+	digitar: cobrun integ024
+	
+* Pacotes que se marca para instalar Slackware
+  - A, Ap, D, E, F, K, L, N, X
+  
+* Recarga de Celular - Habilitar/Desabilitar formas de pagamento
+
+[Geral] 
+
+TransacoesDesabilitadas=<Tipo do meio de pagamento>;...
+
+60 - Recarga de celular com Dinheiro
+61 - Recarga de celular com Cheque
+62 - Recarga de celular com cartão de débito a vista
+63 - Recarga de celular com cartão de crédito a vista
+
+
+* Driver leitor biometrico Nitgen
+http://www.vivaolinux.com.br/topico/Java/Driver-leitor-biometrico-Nitgen
+
+* Consulta de clientes tem hora que vai norma e tem hora que já retorna erro logo de cara
+Verificar versão do FTP do servidor. Se for 2.3.7 é versão bugada! Chamar tecnologia
+ 
