@@ -2,9 +2,8 @@ Aproveitamento de Crédito de Saldo Credor Pis/Cofins Registros: 1100 e 1500 -> 
 
 Como cadastrar Administradoras de Cartões -> cadastros basicos/ administ cartao- ticket / manutenção
 
-Como Cadastrar Tipos Gerenciais  para o Plano de Contas Gerencial (perfil 01) -> cadastros basicos/ Tabelas/ fiannceiras/ plano de contas/ inclusão
 
-Como Cadastrar Tipos Gerenciais  para o Plano de Contas Gerencial (perfil 02) -> cadastros basicos/ Tabelas/ fiannceiras/ plano de contas/Gerencial/ inclusão
+Como Cadastrar Tipos Gerenciais  para o Plano de Contas Gerencial -> cadastros basicos/ Tabelas/ fiannceiras/ plano de contas/Gerencial/ inclusão
 
 Cadastro de códigos Observação ou Informação -> cadastros basicos/ Tabelas/ fiscais/ observação/informação
 
@@ -13,7 +12,7 @@ Gerar Relatório Resumo de Operações DAMEF  -> Relatorios/ Ficais/ Resumo oper
 Importação de Cupom – Item Não encontrado -> vendas automação/ consulta cupons/ nao importados
 					  -> cadastros basicos/ produtos/ retorna excluido
 
-Inclusão de Contas Sintetica ou Analitica no Plano de Contas Contabil(perfil 02) -> cadastros basicos/ Tabelas/ fiannceiras/ plano de contas/ contabil/ inclusao
+Inclusão de Contas Sintetica ou Analitica no Plano de Contas Contabil -> cadastros basicos/ Tabelas/ fiannceiras/ plano de contas/ contabil/ inclusao
 
 LANÇAMENTO DO REGISTRO F100 PARA O SPED PIS COFINS -> cadastros basicos/ Tabelas/ fiscais/ Tabelas ajustes-Sped/ documentos
 
