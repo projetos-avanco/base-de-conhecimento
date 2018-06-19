@@ -1,0 +1,20 @@
+1- baixa de cheque sem fundo:
+Essa mensagem irá aparecer quando no caminho: Admistração Financeira - Contas a receber - cheque sem fundos - manutenção pagamento, for feito o pagamento de um cheque sem fundo.
+
+2- receber MENSAGENS do frente de loja:
+Essa mensagem será apresentada quando no frente de loja Linux, o operador apertar a tecla M, e digitar a mensagem, confirmando o envio.
+
+3- Desconto CuPOM liberações:
+Essa mensagem será apresentada quando no frente de loja, quando for dado desconto em um cupom, tanto por item, quanto no subtotal.
+
+4- Cancelamento de cupom
+Essa mensagem será apresentada quando no frente de loja, quando for cancelado um cupom, com a Tecla F2.
+
+5- Inclusao/Alteracao TRIBUTACAO de PRODUTO
+Essa mensagem será apresentada, quando na alteração ou inclusão de um item no caminho: Administração materiais - gestão de estoque - cadastro de produto - alteração ou inclusão. For informada ou alterada a tributação do item.
+
+6- Alteracao/Exclusao Lanc.Bancarios 
+Essa mensagem irá aparecer quando no caminho: Admistração Financeira - Controle bancario - movimentação - exclusão - individual, for feito a exclusão de algum lancamento bancario.
+
+7- Entrada no mesmo dia com CUSTO Diferente
+Essa mensagem será apresentada quando for dada a entrada de notas com o custo atual diferente do anterior no caminho: Administração materiais - gestão de estoque - gerenciamento de filial - entradas e saidas - movimentação - entrada - compra.
